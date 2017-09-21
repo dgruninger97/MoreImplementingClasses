@@ -219,6 +219,7 @@ class Line(object):
         """
         self.start = start.clone()
         self.end = end.clone()
+        self.numClones = 0
         # --------------------------------------------------------------
         # DONE: 3.
         #   a. READ the above specification, including the Example.
@@ -330,6 +331,7 @@ class Line(object):
           :rtype: Line
         """
         line = Line(self.start.clone(), self.end.clone())
+        self.numClones += 1
         return line
         # --------------------------------------------------------------
         # DONE: 4.
@@ -441,7 +443,7 @@ class Line(object):
         Type hints:
           :rtype: float
         """
-        length = math.sqrt(((self.end.x - self.start.x)** 2) + (self.end.y - self.start.y) ** 2)
+        length = self.start.distance_from(self.end)
         return length
         # --------------------------------------------------------------
         # DONE: 7.
@@ -483,8 +485,9 @@ class Line(object):
         Type hints:
           :rtype: int:
         """
+        return self.numClones
         # --------------------------------------------------------------
-        # TODO: 8.
+        # DONE: 8.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -517,8 +520,12 @@ class Line(object):
           :type  other_line: Line
           :rtype: Line:
         """
+        start = self.start.plus(other_line.start)
+        end = self.end.plus(other_line.end)
+        line = Line(start, end)
+        return line
         # --------------------------------------------------------------
-        # TODO: 9.
+        # DONE: 9.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -551,8 +558,12 @@ class Line(object):
           :type  other_line: Line
           :rtype: Line:
         """
+        start = self.start.minus(other_line.start)
+        end = self.end.minus(other_line.end)
+        line = Line(start, end)
+        return line
         # --------------------------------------------------------------
-        # TODO: 10.
+        # DONE: 10.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
