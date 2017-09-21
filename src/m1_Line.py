@@ -627,8 +627,14 @@ class Line(object):
           :type  line2: Line
           :rtype: bool
         """
+        slope = self.slope()
+        slope2 = line2.slope()
+        if round(slope, 12) == round(slope2, 12):
+            return True
+        else:
+            return False
         # --------------------------------------------------------------
-        # TODO: 12.
+        # DONE: 12.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
