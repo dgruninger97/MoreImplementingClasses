@@ -589,8 +589,10 @@ class Line(object):
         Type hints:
           :rtype: Point
         """
+        midpoint = self.start.halfway_to(self.end)
+        return midpoint
         # --------------------------------------------------------------
-        # TODO: 11.
+        # DONE: 11.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
