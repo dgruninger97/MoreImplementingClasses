@@ -403,8 +403,13 @@ class Line(object):
         Type hints:
           :rtype: float
         """
+        if ((self.end.x - self.start.x) == 0):
+            return math.inf
+        else:
+            slope = ((self.end.y - self.start.y) / (self.end.x - self.start.x))
+        return slope
         # --------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -436,8 +441,10 @@ class Line(object):
         Type hints:
           :rtype: float
         """
+        length = math.sqrt(((self.end.x - self.start.x)** 2) + (self.end.y - self.start.y) ** 2)
+        return length
         # --------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
