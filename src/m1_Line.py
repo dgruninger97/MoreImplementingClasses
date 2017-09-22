@@ -219,6 +219,8 @@ class Line(object):
         """
         self.start = start.clone()
         self.end = end.clone()
+        self.originalstart = self.start
+        self.originalend = self.end
         self.numClones = 0
         # --------------------------------------------------------------
         # DONE: 3.
@@ -707,7 +709,8 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
-
+        self.start = self.originalstart
+        self.end = self.originalend
 
 ########################################################################
 # The TEST functions for the  Line  class begin here.
